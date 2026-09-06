@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎉</title>
+    <!-- Corrected Canvas Confetti Library CDN -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body { background: linear-gradient(135deg, #ffeaa7 0%, #ff7675 100%); font-family: 'Segoe UI', sans-serif; text-align: center; padding: 20px; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 95vh; }
+        .card { background: white; padding: 35px 25px; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); max-width: 400px; width: 100%; }
+        .datetime-badge { background-color: #ffeaa7; color: #d63031; font-size: 0.9rem; font-weight: bold; padding: 8px 15px; border-radius: 50px; display: inline-block; margin-bottom: 15px; }
+        h1 { color: #d63031; font-size: 2.1rem; margin: 10px 0 5px 0; }
+        .friend-name { color: #6c5ce7; font-size: 2.6rem; font-weight: bold; display: block; margin-bottom: 15px; }
+        p { color: #2d3436; font-size: 1.15rem; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div id="date-display" class="datetime-badge">📅 8 August</div>
+        <h1 id="time-greeting">Happy Birthday,</h1>
+        <!-- 👇 TYPE 
+        <span class="friend-name">Moiman chungz </span> 
+        <p>Wishing you a wonderful day filled with love, laughter, and endless happiness! May all your dreams come true! ✨</p>
+    </div>
+    <script>
+        window.onload = function() {
+            // Confetti effect
+            var duration = 5 * 1000; var end = Date.now() + duration;
+            (function frame() { confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 } }); confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 } }); if (Date.now() < end) { requestAnimationFrame(frame); } }());
+            
+            // Time-based greeting logic based on August 8th
+            const now = new Date();
+            const hours = now.getHours();
+            
+            let greeting = "Happy Birthday,";
+            if (hours >= 5 && hours < 12) greeting = "🌅 Good Morning & Happy Birthday,";
+            else if (hours >= 12 && hours < 17) greeting = "☀️ Good Afternoon & Happy Birthday,";
+            else if (hours >= 17 && hours < 22) greeting = "🌆 Good Evening & Happy Birthday,";
+            else greeting = "🌌 Happy Birthday,";
+            
+            document.getElementById('time-greeting').innerText = greeting;
+        };
+    </script>
+</body>
+</html>
